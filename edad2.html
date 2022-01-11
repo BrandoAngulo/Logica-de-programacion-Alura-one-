@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edades 2</title>
+</head>
+<body>
+
+    <script>
+        
+        function saltoLinea(){
+
+            document.write("<br><br><br><hr><br><br>");
+
+        }
+
+        function imprimir(frase){
+
+            document.write("<center><big>"+frase+"</big></center>");
+            saltoLinea();
+        }
+
+        let year = 2022;
+
+        imprimir("Hola Amigos");
+
+        //Este Codigo Calcula las Edades de Carlos, Juan y Pedro
+        //Recordar que al momento de concatenar varables que tengan numeros encerar en parentesis para dar prioridad lo que esta dentro de ().
+        imprimir("Carlos tiene: "+ (year - 1992) +" Años");
+        imprimir("Juan tiene: "+ (year - 1990) +" Años");
+        imprimir("Pedro tiene: "+ (year -1994) +" Años");
+        
+
+    </script>
+</body>
+</html>

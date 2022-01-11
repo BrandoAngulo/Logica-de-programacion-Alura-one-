@@ -10,6 +10,11 @@
 <h3>Alcohol o Gasoina?</h3>
 <script>
 
+    function mostrarAlerta(frase){
+
+        alert("*** "+frase+" ***");
+    }
+
     function saltoLinea(){
 
         document.write("<br><br>");
@@ -19,24 +24,33 @@
     function imprimir(frase){
 
         document.write(frase);
+        saltoLinea()
     }
 
 
-    document.write("3. Problema: Si un carro tiene un tanque de 40 litros. Usando gasolina y consumiendo todo el tanque se hace un camino de 480 kilómetros. ¿Cuál es el consumo de gasolina? Para calcular el consumo: divide la distancia recorrida por la cantidad de litros gastados. Imprime el valor utilizando document.write. Organiza las cuentas en variables. ");
-    saltoLinea();
+    imprimir("3. Problema: Si un carro tiene un tanque de 40 litros. Usando gasolina y consumiendo todo el tanque se hace un camino de 480 kilómetros. ¿Cuál es el consumo de gasolina? Para calcular el consumo: divide la distancia recorrida por la cantidad de litros gastados. Imprime el valor utilizando document.write. Organiza las cuentas en variables. ");
     
     let lt = 40;
     let km = 480;
     const consumo = km/lt;
-    imprimir("<u>El consumo de gasolina es: ",consumo," Lts","</u>");
-    saltoLinea();
+    imprimir("<u>El consumo de gasolina es: "+consumo+" Lts"+"</u>");
 
     imprimir("4.- Por otro lado, con el alcohol: el mismo tanque de 40 litros hace un recorrido de 300 kilómetros. ¿Cuál es el consumo de alcohol/km?");
-    saltoLinea();
     
     km = 300;
     const consumo2 = km/lt;
-    imprimir("<u>El consumo de alcohol es: ",consumo2," Lts","</u>");
+    imprimir("<u>El consumo de alcohol es: "+consumo2+" Lts"+"</u>");
+
+
+    var edad1 = 10;
+    var edad2 = 20;
+    var edad3 = 30;
+    var totalEdades = edad1 + edad2 + edad3;
+    var promedioEdades = totalEdades/3;
+    mostrarAlerta("Total de edades es " + totalEdades);
+    mostrarAlerta("La media de las edades es " +  promedioEdades);
+
+
 </script>
 </body>
 </html>
