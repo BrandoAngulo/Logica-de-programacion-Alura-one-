@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular Puntuacion de Equipos</title>
+  </head>
+  <body>
+    <script>
+
+        function saltoLinea() {
+        document.write("<hr><br><br>");
+      }
+
+      function imprimir(frase) {
+        document.write(frase);
+
+        saltoLinea();
+      }
+
+      let victorias = parseInt(prompt("Digite la Cantidad de Victorias"));
+      let empate = parseInt(prompt("Digite la Cantidad de Empates"));
+      let totalPuntos = victorias * 3 + empate;
+      let anioPasado = 28;
+
+      imprimir("<big>Total de Puntos del Equipo es: </big>" + totalPuntos);
+      if (totalPuntos > anioPasado) {
+        imprimir("Estamos Mejor que el Año Pasado");
+      } else if (totalPuntos < anioPasado) {
+        imprimir("Estamos Peor que el Año Pasado");
+      } else {
+        imprimir("Estamos Igual que el Año Pasado");
+      } 
+
+     
+    </script>
+  </body>
+</html>
