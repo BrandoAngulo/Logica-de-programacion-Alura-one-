@@ -1,60 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Programa que Calcula el IMC (indice de masa corporal)</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <center>
-      <h1>Calculadora de IMC</h1>
+        <h1>Calculadora de IMC</h1>
     </center>
     <script>
+        function saltoLinea() {
+            document.write("<br><br><hr>");
+        }
 
-      function saltoLinea() {
-        document.write("<br><br><hr>");
-      }
+        function imprimir(frase) {
+            document.write("<big>" + frase + "</big>");
+            saltoLinea();
+        }
 
-      function imprimir(frase) {
-        document.write("<big>" + frase + "</big>");
-        saltoLinea();
-      }
+        /*  cuando necesitemos que una funcion nos de un valor siempre hay que retornar  */
+        //esta funcion recibe tres parametros dos enteros y un string
+        function calcularImc(peso, altura) {
 
-     /*  cuando necesitemos que una funcion nos de un valor siempre hay que retornar  */
-     //esta funcion recibe tres parametros dos enteros y un string
-      function calcularImc(peso1,altura1,nombre1,peso2,altura2,nombre2) {
-      
-         imc1 = peso1 / Math.pow(altura1,2);
-         //imc1 =imc1.toFixed(1);
-         imc2 = peso2 / Math.pow(altura2,2);
-         //imc2 =imc2.toFixed(1);
-         promedio = (imc1+imc2)/2;
-         promedio = promedio.toFixed(1); 
-         imprimir("el Promedio IMC calculado de "+ nombre1+" y "+nombre2+" es de: " + promedio);
+            imc = peso / Math.pow(altura, 2);
+            //redondea el imc
+            //imc =imc1.toFixed(1);
 
-         
-         //se comenta el return por que ya estamos imprimiendo el imc
-         //return(imc);
-      }
-  
+            return (imc);
 
-      //se comenta las variables por que se meten los parametros en la funcion de calcularImc
-      //let altura1 = 1.78;
-      //let peso1 = 78;
-      let imc = calcularImc(78,1.78,"Brando",78,1.72,"Arturo");
-      
-      //se comenta tambien por que ya se esta imprimiendo el imc en la funcion
-      //imprimir("Su IMC es de: " + imc1);
+        }
 
-      //se comenta las variables por que se meten los parametros en la funcion de calcularImc
-      //altura1 = 1.72;
-      //peso1 = 78;
-      //let imc22 = calcularImc(78,1.72,"Arturo");
-      
-      //se comenta tambien por que ya se esta imprimiendo el imc en la funcion
-      //imprimir("Su IMC es de: " + imc1); 
-      
+        let imc1 = calcularImc(78, 1.78);
+        let imc2 = calcularImc(80, 1.72);
+        promedio = (imc1 + imc2) / 2;
+        promedio = promedio.toFixed(1);
+        imprimir("el Promedio IMC calculado de Brando y Arturo es de: " + promedio);
     </script>
-  </body>
+</body>
+
 </html>

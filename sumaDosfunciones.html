@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function saltarLinea() {
+
+            document.write("<br>");
+        }
+
+        function mostrar(frase) {
+            document.write(frase);
+            saltarLinea();
+        }
+
+        function a(numero1, numero2) {
+            return numero1 + numero2;
+        }
+
+        function b(numero1, numero2) {
+            return numero1 / numero2;
+        }
+        //parseint convierte un string en entero
+        let a1 = parseInt(prompt("ingresa un numero"));
+        let a2 = parseInt(prompt("ingresa otro numero"));
+        let b1 = parseInt(prompt("ingresa un numero"));
+        let b2 = parseInt(prompt("ingresa otro numero"));
+        let resultado = a(a1, a2) + b(b1, b2);
+
+        mostrar(resultado);
+    </script>
+</body>
+
+</html>
