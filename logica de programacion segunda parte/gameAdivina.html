@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adivina</title>
+  </head>
+  <body>
+    <center>
+      <h1>Adivina el numero</h1>
+    </center>
+    <script>
+      function saltoLinea() {
+        document.write("<br><br><hr>");
+      }
+
+      function imprimir(frase) {
+        document.write("<big>" + frase + "</big>");
+        saltoLinea();
+      }
+
+      //contador
+      let i = 0;
+      //constante que le asignamos el numero random a adivinar
+      const win = Math.round(Math.random()*100);
+      //imprimir(win);
+     //se le pide al usuario que ingrese el numero a adivinar 
+      let numero = parseInt(prompt("Ingrese un Numero"));
+
+      //si el usuario no adivina al primer intento entra en este condicional y lo arroja a un ciclo
+      if (numero < win) {
+        imprimir("Tienes Digitar un Numero mas Alto");
+      } else if (numero > win) {
+        imprimir("Tienes Digitar un Numero mas Bajo");
+      }
+      //un ciclo mientras por si el usuario no acierta el primer intento, se repite hasta que adivine
+      //mientras numero sea diferente de win, osea que si el usuario acierta con que sea diferente el numero tecleado. entra al bucle por que es verdadero hasta que el numero sea el verdadero ya sale del bucle por que la condicion no se cumple y es falsa.
+      while (numero != win) {
+
+        numero = parseInt(prompt("Ingrese un Numero"));
+        if (numero < win) {
+          imprimir("Tienes Digitar un Numero mas Alto");
+        } else {
+          imprimir("Tienes Digitar un Numero mas Bajo");
+        }
+        i++;
+
+      }
+      //cuando adivine y salga del bucle
+      imprimir("Congratulation");
+    </script>
+  </body>
+</html>
