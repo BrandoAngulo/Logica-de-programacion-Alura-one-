@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Edades de Familia</title>
+  </head>
+  <body>
+    <h1>Calcular la Media de Edades de una Familia</h1>
+    <script>
+      function saltoLinea() {
+        document.write("<br><hr><br>");
+      }
+      function imprimir(frase) {
+        document.write(frase);
+        saltoLinea();
+      }
+
+      let numeroFamilia = parseInt(
+        prompt("Ingresa cuantos Miembros ahí en tu Familia")
+      );
+      let edad;
+      let usuario;
+      let acumulador = 0;
+      let i = 1;
+      //dentro de este while le preguntamos al usuario cuantos familiares tiene y con el iterador lo que va hacer es que va pedir que digite cual es el miembro de la familia dependiendo de la cantidad de miembros 
+      while (i <= numeroFamilia) {
+
+        //este dowhile repide un menu que pide cual familiar es, hasta  que el while termine con la iteracion 
+        do {
+          usuario = parseInt(
+            prompt(
+              "Ingresa cual es el miembro de tu familia\n1.padre\n2.madre\n3.hermanos(as)"
+            )
+          );
+            //dentro del dowhile tenemos un switch el cual nos pregunta que familiar es hasta terminar el ciclo
+          switch (usuario) {
+            case 1:
+              imprimir("padre");
+              break;
+            case 2:
+              imprimir("madre");
+              break;
+              case 3:
+              imprimir("hermanos (as) ");
+              break; 
+            default:
+              imprimir("Familiar digitado no coincide");
+              break;
+          }
+
+        } while (usuario != 1 && usuario != 2 &&usuario != 3);
+        edad = parseInt(prompt("Ingresa su edad"));
+        imprimir(edad+" Años");
+        //suma cada edad acumulada con la siguiente hasta que termine la iteracion
+        acumulador += edad;
+        i++;
+
+      }
+      //nos muestra la media de las edades de toda la familia
+      let media = acumulador / numeroFamilia;
+      imprimir("La media de la familia es: " + media);
+    </script>
+  </body>
+</html>
