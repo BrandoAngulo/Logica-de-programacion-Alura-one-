@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Multiplicar</title>
+</head>
+<body>
+    <head><h1 style="color: blue;">Tabla de multiplicar</h1></head>
+    <div style="background-color: red; width: 50%;">
+    <script>
+        function saltoLinea() {
+            document.write("<br><hr><br>")
+        }
+
+        function imprimir(frase){
+        
+            document.write(frase);
+            saltoLinea();
+        }
+
+        let numero = parseInt(prompt("Digita el Numero Deseado de la Tabla de Multiplicar"));
+        let i = 1;
+        let tabla; 
+        let tabla1;
+        imprimir("<big>Tabla del "+numero+"</big>");
+        
+        //i es el iterador que va ir cambiando hasta que i sea menor o igual a 10 cuando se cumpla esto se va cumplir la condicion del while y va salir del bucle 
+        while (i <= 10 ) {
+            //se crea una variable para que gaurde el resultado  que se va multiplicando por cada iteracion
+            let tabla = numero * i;
+            imprimir("<big>" + numero + " x " + i + " = " + tabla + "</big>");
+            i++;
+        }
+        //PRUEBA CON EL BUCLE FOR
+        imprimir("<big>Bucle For</big>");
+        for (let x = 1; x <= 10 ; x++) {
+             tabla1 = numero * x;
+             imprimir ("<big>" + numero + " x " + x + " = " + tabla1 + "</big>");
+        }
+
+    </script>
+    </div>
+    
+</body>
+</html>
