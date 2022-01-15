@@ -19,14 +19,16 @@
             saltoLinea();
         }
 
-        let pares=1;
-        i=1;
+        let i=1;
+        //mientras que la variable i sea menor o igual a 100 siga 
         while (i <= 100) {
-            pares = 2;
-            imprimir(pares);
+            //imprimame los numeros pares, cuando es divisible por 2 y el residuo es igual a cero
+            if ((i%2)==0) {
+                imprimir(i);   
+            }
             i++ 
         }
-
+        //imprimir (pares);
     </script>
 </body>
 </html>
