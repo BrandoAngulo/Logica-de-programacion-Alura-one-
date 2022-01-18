@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<script>
+    let inicioDeSesionRegistrado = "alura";
+    let contrasenhaRegistrada = "alura321";
+
+    let inicioDeSesionIngresado = prompt("Ingrese su usuario");
+    let contrasenhaIngresada = prompt("Ingrese su contraseña");
+
+    let i = 0;
+    let intentos = 3;
+
+    //si al ingresar por primer ves es correcto queda aca
+    if (inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada) {
+        alert("Bienvenido al sistema " + inicioDeSesionIngresado);
+
+        //si no muestra la alerta y entra en un doble while donde entra por ser diferentes las credenciales y otro while el cual solo da 3 intentos por seguridad
+    } else {
+        alert("inicio de sesión inválido. Favor intente de nuevo");
+
+        //mientras sea diferente entra al bucle
+        while ((inicioDeSesionIngresado != inicioDeSesionRegistrado) && (contrasenhaIngresada != contrasenhaRegistrada)) {
+            //mientras i sea menor o igual a intentos estara dentro cuando sea mayor sale del bucle 
+            while (i < intentos) {
+                inicioDeSesionIngresado = prompt("Ingrese su usuario");
+                contrasenhaIngresada = prompt("Ingrese su contraseña");
+
+                if (inicioDeSesionRegistrado == inicioDeSesionIngresado && contrasenhaRegistrada == contrasenhaIngresada) {
+                    alert("Bienvenido al sistema " + inicioDeSesionIngresado);
+                    break;
+                } else {
+                    alert("inicio de sesión inválido. Favor intente de nuevo");
+                }
+                i++;
+                //numero de intentos 
+                alert("intentos "+i+" de "+intentos);
+            }
+            //al salir del bucle salta al primero que va mostrar esta alerta 
+            alert("Tus datos no son correctos has intentado ingresar mas de 3 veces tendras que contactarte con soporte");
+            //lo expulsa del bucle
+            break;
+        }
+    }
+    document.write("FIN");
+</script>

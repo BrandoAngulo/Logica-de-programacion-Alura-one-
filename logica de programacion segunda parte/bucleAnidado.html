@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucles Anidados</title>
+</head>
+<body>
+    
+    <script>
+        function saltoLinea() {
+            
+            document.write("<br><br><br>");
+
+        }
+
+        function imprimir(frase){
+            
+            document.write(frase);
+
+            saltoLinea();
+        }
+
+        //el for de filas crea tres filas
+        for (let filas = 1; filas <= 3; filas++) {
+            //crea 10 columnas con asteriscos dentro de cada fila del for
+            for (let columnas = 1; columnas <= 10; columnas++) {
+                
+                document.write("*");
+                
+            }
+            saltoLinea();
+            
+        }
+    
+        imprimir("Fin");
+
+    </script>
+</body>
+</html>
