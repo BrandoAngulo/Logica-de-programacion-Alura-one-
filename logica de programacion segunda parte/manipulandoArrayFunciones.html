@@ -1,82 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <input type="number" />
     <button>Verificar</button>
     <script>
-      function aleatorio() {
-        let valorAleatorio = Math.round(Math.random() * 10);
-        return valorAleatorio;
-      }
+        function aleatorio() {
+            let valorAleatorio = Math.round(Math.random() * 10);
+            return valorAleatorio;
+        }
 
-      function secretos(cantidad) {
-        let win = [];
-        //se crea la variable para llamar la funcion q vamos a usar con los numero random
-        //let numeroAleatorio;
-        let i = 1;
-        let repetido = false;
+        function secretos(cantidad) {
+            let win = [];
+            //se crea la variable para llamar la funcion q vamos a usar con los numero random
+            let numeroAleatorio;
+            let i = 1;
+
 
             while (i <= cantidad) {
-            //la variable se mete dentro del while y se le llama la funcion aleatorio por que por cada iteracion debe de cambiar el numero para cada posicion del array
-            let numeroAleatorio = aleatorio();
-            console.log(numeroAleatorio);
+                //la variable se mete dentro del while y se le llama la funcion aleatorio por que por cada iteracion debe de cambiar el numero para cada posicion del array
+                numeroAleatorio = aleatorio();
+                //console.log(numeroAleatorio); para ver los que salieron repetidos
+                let repetido = false;
 
-            //si numero aleatorio es diferente de cero que haga esa accion, si no que pase al proximo valor
-            //if (numeroAleatorio != 0) {
-                //este bucle se hace para que no se permitan los numeros repetidos en el array tras hacer un random
-                for (let index = 0; index < win.length; index++) {
-                    //si el numero random es igual a algun numero en la posicion del array q haga esa accion
-                    if (numeroAleatorio === win[index]) {
-                        //si hay un repetido la variable es verdadera sale del for y repite el while hasta que no true la variable aleatorio
-                        repetido = true;
-                        break;
+                //si numero aleatorio es diferente de cero que haga esa accion, si no que pase al proximo valor
+                if (numeroAleatorio != 0) {
+                    //este bucle se hace para que no se permitan los numeros repetidos en el array tras hacer un random
+                    for (let index = 0; index < win.length; index++) {
+                        //si el numero random es igual a algun numero en la posicion del array q haga esa accion
+                        if (numeroAleatorio === win[index]) {
+                            //si hay un repetido la variable es verdadera sale del for y repite el while hasta que no true la variable aleatorio
+                            repetido = true;
+                            break;
+                        }
+                    }
+                    //si es false entra al condicional y pushea el numero random en el array
+                    if (repetido === false) {
+                        //la funcion push inserta un dato en la ultima posicion del array
+                        win.push(numeroAleatorio);
+                        //el contador debe de estar dentro del condicional por que solamente cuando no hay repetidos es que vamos a pushear.... por q si lo dejamos fuera del condicional va a seguir contando asi hayan repetidos y como los repetidos no los va dejar pasar la cantidad de numeros van hacer menos de las que se piden.
+                        i++;
                     }
                 }
-                //si es false entra al condicional y pushea el numero random en el array
-                if (repetido === false) {
-                //la funcion push inserta un dato en la ultima posicion del array
-                win.push(numeroAleatorio);
-                //el contador debe de estar dentro del condicional por que solamente cuando no hay repetidos es que vamos a pushear.... por q si lo dejamos fuera del condicional va a seguir contando asi hayan repetidos y como los repetidos no los va dejar pasar la cantidad de numeros van hacer menos de las que se piden.
-                i++;
-                }
-          //}
-          
-        }
-        return win;
-      }
 
-      let input = document.querySelector("input");
-      let win = secretos(4);
+            }
+            return win;
 
-      //esta variable se hace para q cuando salga del for si es falsa la respuesta entre al condicional y al comparar que es false muestra la alerta que el numero no es el verdadero
-      let win2 = false;
-      input.focus();
+        }
 
-      function verificar() {
-        for (let i = 0; i < win.length; i++) {
-          //win es el array y el [i] rrecorre cada posicion para ver cual es la posicion correcta
-          if (parseInt(input.value) === win[i]) {
-            alert("Congratulation");
-            //si la respuesta es correcta cambia la variable a true por lo tanto no entra al condicional despues de salir del for
-            win2 = true;
-            //al darse cuenta que acierta con alguna a la primera cora de una ves para no seguir revisando los otros numero dentro del array
-            break;
-          }
-        }
-        if (win2 === false) {
-          alert("Perdiste");
-        }
-        input.value = "";
+        let input = document.querySelector("input");
+        let win = secretos(4);
+        //console.log(win); para ver en tiempo real el array
+
+        //esta variable se hace para q cuando salga del for si es falsa la respuesta entre al condicional y al comparar que es false muestra la alerta que el numero no es el verdadero
+        let win2 = false;
         input.focus();
-      }
-      let button = document.querySelector("button");
-      button.onclick = verificar;
+
+        function verificar() {
+            for (let i = 0; i < win.length; i++) {
+                //win es el array y el [i] rrecorre cada posicion para ver cual es la posicion correcta
+                if (parseInt(input.value) === win[i]) {
+                    alert("Congratulation");
+                    //si la respuesta es correcta cambia la variable a true por lo tanto no entra al condicional despues de salir del for
+                    win2 = true;
+                    //al darse cuenta que acierta con alguna a la primera cora de una ves para no seguir revisando los otros numero dentro del array
+                    break;
+                }
+            }
+            if (win2 === false) {
+                alert("Perdiste");
+            }
+            input.value = "";
+            input.focus();
+        }
+        let button = document.querySelector("button");
+        button.onclick = verificar;
     </script>
-  </body>
+</body>
+
 </html>

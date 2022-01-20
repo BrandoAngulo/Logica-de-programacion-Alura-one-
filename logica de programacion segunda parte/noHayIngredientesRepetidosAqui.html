@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredientes sin Repetir</title>
+</head>
+<body>
+
+<h1>Recetas de Armando</h1>
+
+<!-- <input type="number">
+<button type="">insertar</button> -->
+
+<script>
+
+    let ingredientes = [];
+    let cantidad = parseInt(prompt("¿Cuántos ingredientes vas a añadir?"));
+    let contador = 0;
+    
+    
+
+    while( contador < cantidad) {
+
+        let ingrediente;
+        let repetido = false;
+
+        for (let i = 0; i < ingredientes.length; i++) {
+             ingrediente = prompt("Informe el ingrediente " + contador);
+            
+            if (ingrediente === ingredientes[i]) {
+                repetido = true;
+                break;
+            }
+        }
+        if (repetido === false) {
+        ingredientes.push(ingrediente);
+        contador++;
+        }
+    }
+    
+
+    console.log(ingredientes);
+    document.write(ingredientes);
+
+</script>
+</body>
+</html>
