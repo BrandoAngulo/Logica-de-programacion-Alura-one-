@@ -17,18 +17,18 @@
 
     let ingredientes = [];
     let cantidad = parseInt(prompt("¿Cuántos ingredientes vas a añadir?"));
-    let contador = 0;
+    let ingrediente;
+    let contador = 1;
     
     
 
-    while( contador < cantidad) {
+    while ( contador <= cantidad) {
 
-        let ingrediente;
-        let repetido = false;
-
+         ingrediente = prompt("Informe el ingrediente " + contador);
+         let repetido = false;
+        
         for (let i = 0; i < ingredientes.length; i++) {
-             ingrediente = prompt("Informe el ingrediente " + contador);
-            
+    
             if (ingrediente === ingredientes[i]) {
                 repetido = true;
                 break;
@@ -37,7 +37,7 @@
         if (repetido === false) {
         ingredientes.push(ingrediente);
         contador++;
-        }
+        } 
     }
     
 
