@@ -10,52 +10,37 @@
 
 <body>
     <h1>Encriptador</h1>
-    <input type="text" placeholder="Ingresa las palabras">
+    <input type="text" placeholder="Digita las palabras a encriptar">
     <button>Encriptar</button>
     <script>
-        /*  function imprimir(frase) {
-                            document.write(frase);
-                        }
-                        function encriptar(){
-                            let input = document.querySelector("input");
-                            repetido = true;
-                            let abecedario = ["a","e","i","o","u"];
-                            prueba = "aeiou";
-                            i = 0;
-                            input.focus();
 
-                            //console.log(abecedario.replace(abecedario[0],i));
-                            
+        function encriptar() {
+            
+            input = document.querySelector("input");
+            lista1 =["a","e","i","o","u"];
 
-                            while (i < abecedario.length) {
+            
+             for (let i = 0; i < lista1.length; i++) {
 
-                                if (input.value === abecedario[i]) {
+                if (input.value === lista1[i]) {
 
-                                   console.log(prueba.replace("a","ai"));
-                                   
-                               }
-                               input.value="";
-                               input.focus();
+                    alert("repetido posicion ");
+                   /*  encriptar = encriptar.replace(/a/g, "ai");
+                    encriptar = encriptar.replace(/e/g, "enter");
+                    encriptar = encriptar.replace(/i/g, "imes");
+                    encriptar = encriptar.replace(/o/g, "ober");
+                    encriptar = encriptar.replace(/u/g, "ufat"); */
+                    break;
 
-                               i++
-                            } 
-                            
-                        }
-
-                       let button = document.querySelector("button");
-                        button.onclick = encriptar;
-                         */
-
-
-        // esta es la frase original
-
-
-
-        
+                }
+                
+            } 
+            
+        }
 
 
         function desencriptar() {
-            let desencriptado = "enterrai ufatnai venterz ufatn gaitober y ufatn caibaillober qufatenter dentersenteraibain senterr aimimesgobers denter ufatn paitober"
+            let desencriptado = prompt("digita las palabras para desencriptar");
 
             desencriptado = desencriptado.replace(/ai/g, "a");
             desencriptado = desencriptado.replace(/enter/g, "e");
@@ -63,11 +48,14 @@
             desencriptado = desencriptado.replace(/ober/g, "o");
             desencriptado = desencriptado.replace(/ufat/g, "u");
 
-            console.log(desencriptado);
+            console.log (desencriptado);
 
         }
 
-        
+        //i= desencriptar();
+        //e =encriptar();
+        let button = document.querySelector("button");
+        onclick.button = encriptar;
 
     </script>
 </body>
