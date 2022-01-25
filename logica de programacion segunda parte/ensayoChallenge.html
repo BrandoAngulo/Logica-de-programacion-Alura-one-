@@ -12,30 +12,45 @@
     <h1>Encriptador</h1>
     <input type="text" placeholder="Digita las palabras a encriptar">
     <button>Encriptar</button>
+
     <script>
+        let input = document.querySelector("input");
+        lista1 = ["a", "e", "i", "o", "u"];
+        let encriptado;
+
+        input.focus();
 
         function encriptar() {
+
+            let array = input.value.split("");
+
+            for (let i = 0; i < lista1.length; i++) {
             
-            input = document.querySelector("input");
-            lista1 =["a","e","i","o","u"];
+            if (array[i] === lista1[i]) {
 
-            
-             for (let i = 0; i < lista1.length; i++) {
-
-                if (input.value === lista1[i]) {
-
-                    alert("repetido posicion ");
-                   /*  encriptar = encriptar.replace(/a/g, "ai");
-                    encriptar = encriptar.replace(/e/g, "enter");
-                    encriptar = encriptar.replace(/i/g, "imes");
-                    encriptar = encriptar.replace(/o/g, "ober");
-                    encriptar = encriptar.replace(/u/g, "ufat"); */
-                    break;
-
+                if (array[i]===lista1[i]) {
+                    array = array.split(/a/).join("ai");   
                 }
-                
-            } 
+                if (array[i]===lista1[i]) {
+                    array = array.split(/e/).join("enter");
+                }
+                if (array[i]===lista1[i]) {
+                    array = array.split(/i/).join("imes");
+                }
+                if (array[i]===lista1[i]) {
+                    array = array.split(/o/).join("ober");
+                }
+                if (array[i]===lista1[i]) {
+                    array = array.split(/u/).join("ufat");
+                }
+            }
             
+        }
+            
+            console.log(array);
+
+            input.value = "";
+            input.focus();
         }
 
 
@@ -48,15 +63,14 @@
             desencriptado = desencriptado.replace(/ober/g, "o");
             desencriptado = desencriptado.replace(/ufat/g, "u");
 
-            console.log (desencriptado);
+            console.log(desencriptado);
 
         }
 
         //i= desencriptar();
         //e =encriptar();
         let button = document.querySelector("button");
-        onclick.button = encriptar;
-
+        button.onclick = encriptar;
     </script>
 </body>
 
