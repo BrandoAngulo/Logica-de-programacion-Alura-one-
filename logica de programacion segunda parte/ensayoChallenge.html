@@ -14,40 +14,40 @@
     <button>Encriptar</button>
 
     <script>
+        function check(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) {
+                return true;
+            }
+
+            // Patron de entrada, en este caso solo acepta numeros y letras
+            patron = /[A-Za-z0-9]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+
+        
         let input = document.querySelector("input");
-        lista1 = ["a", "e", "i", "o", "u"];
         let encriptado;
+        let str;
 
         input.focus();
 
         function encriptar() {
 
-            let array = input.value.split("");
+            //remplaza todas las coincidencias de palabras asignada por la bocal asignada
+            str = input.value.replaceAll("e", "enter").replaceAll("i", "imes").replaceAll("a", "ai").replaceAll("o", "ober").replaceAll("u", "ufat");
 
-            for (let i = 0; i < lista1.length; i++) {
-            
-            if (array[i] === lista1[i]) {
+            //condicional solo para que ingrese letras minusculas
+            if (str !== str.toLowerCase()) {
+                alert("tienes  mayusculas en la frase");
 
-                if (array[i]===lista1[i]) {
-                    array = array.split(/a/).join("ai");   
-                }
-                if (array[i]===lista1[i]) {
-                    array = array.split(/e/).join("enter");
-                }
-                if (array[i]===lista1[i]) {
-                    array = array.split(/i/).join("imes");
-                }
-                if (array[i]===lista1[i]) {
-                    array = array.split(/o/).join("ober");
-                }
-                if (array[i]===lista1[i]) {
-                    array = array.split(/u/).join("ufat");
-                }
+            } else {
+                console.log(str);
+
             }
-            
-        }
-            
-            console.log(array);
 
             input.value = "";
             input.focus();
@@ -55,22 +55,33 @@
 
 
         function desencriptar() {
-            let desencriptado = prompt("digita las palabras para desencriptar");
 
-            desencriptado = desencriptado.replace(/ai/g, "a");
-            desencriptado = desencriptado.replace(/enter/g, "e");
-            desencriptado = desencriptado.replace(/imes/g, "i");
-            desencriptado = desencriptado.replace(/ober/g, "o");
-            desencriptado = desencriptado.replace(/ufat/g, "u");
+            let caracteres = /^[a-z]$/;
+            input.focus();
 
-            console.log(desencriptado);
+            //remplaza todas las coincidencias de palabras asignada por la bocal asignada
+            let str = input.value.replaceAll("enter", "e").replaceAll("imes", "i").replaceAll("ai", "a").replaceAll("ober", "o").replaceAll("ufat", "u");
+
+
+            if (str !== str.toLowerCase) {
+                alert("Frase con mayusculas");
+
+            } else {
+                console.log(str);
+
+            }
+
+
+            input.value = "";
+            input.focus();
 
         }
 
         //i= desencriptar();
         //e =encriptar();
         let button = document.querySelector("button");
-        button.onclick = encriptar;
+        //button.onclick = encriptar;
+        button.onclick = desencriptar;
     </script>
 </body>
 
