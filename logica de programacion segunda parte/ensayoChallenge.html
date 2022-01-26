@@ -37,15 +37,17 @@
 
         function encriptar() {
 
+            //caracteres que se permiten digitar en el input = que inicie con letras solo minusculas que y \s= tenga espacios ?=que los espacios sean opcionales
+            let caracteres = /^[a-z\s?]+$/;
             //remplaza todas las coincidencias de palabras asignada por la bocal asignada
             str = input.value.replaceAll("e", "enter").replaceAll("i", "imes").replaceAll("a", "ai").replaceAll("o", "ober").replaceAll("u", "ufat");
 
             //condicional solo para que ingrese letras minusculas
-            if (str !== str.toLowerCase()) {
-                alert("tienes  mayusculas en la frase");
+            if (caracteres.test(str)) {
+                console.log(str);
 
             } else {
-                console.log(str);
+                console.log("frase mal digitada")
 
             }
 
@@ -56,18 +58,19 @@
 
         function desencriptar() {
 
-            let caracteres = /^[a-z]$/;
+            //caracteres que se permiten digitar en el input = que inicie con letras solo minusculas que y \s= tenga espacios ?=que los espacios sean opcionales
+            let caracteres = /^[a-z\s?]+$/;
             input.focus();
 
             //remplaza todas las coincidencias de palabras asignada por la bocal asignada
             let str = input.value.replaceAll("enter", "e").replaceAll("imes", "i").replaceAll("ai", "a").replaceAll("ober", "o").replaceAll("ufat", "u");
 
-
-            if (str !== str.toLowerCase) {
-                alert("Frase con mayusculas");
+            //se hace un condicional testeando lo que digita el usuario si esta dentro del rango de caracteres permitidos seria true.
+            if (caracteres.test(str)) {
+                console.log(str);
 
             } else {
-                console.log(str);
+                console.log("Frase mal digitada");
 
             }
 
@@ -80,8 +83,8 @@
         //i= desencriptar();
         //e =encriptar();
         let button = document.querySelector("button");
-        //button.onclick = encriptar;
-        button.onclick = desencriptar;
+        button.onclick = encriptar;
+        //button.onclick = desencriptar;
     </script>
 </body>
 
