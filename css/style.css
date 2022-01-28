@@ -7,7 +7,7 @@
 }
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; 
 }
 
 *,
@@ -17,6 +17,8 @@ html {
 }
 body {
   font-size: 1.6rem;
+  background-image: url(https://kyaooo.net/wp-content/uploads/2021/01/ataques-tipo-fantasma-pokemon-go-scaled.jpg);
+  background-size: contain;
 }
 
 
@@ -46,10 +48,11 @@ h1 {
   font-size: 4rem;
 }
 h2 {
-  color: var(--blanco);
+  color: var(--negro);
   font-size: 4rem;
 }
 h3 {
+  color: var(--blanco);
   font-size: 3.2rem;
 }
 img {
@@ -59,13 +62,32 @@ img {
   text-align: center;
 }
 
-.boton{
+.boton {
   background-color: var(--negro);
   color: var(--blanco);
   width: 10rem;
   border-radius: 1rem;
   font-family: var(--fuenteHeading);
   padding: 0.5rem;
+  font-weight:bold;
+}
+.boton__texto{
+  width: 50%;
+  margin: 0 auto;
+}
+.boton__copiar{
+  background-color: var(--negro);
+  color: var(--blanco);
+  width: 100%;
+  border-radius: 1rem;
+  font-family: var(--fuenteHeading);
+  padding: 0.5rem;
+  font-size: 2rem;
+  font-weight:bold;
+
+}
+.boton__copiar:hover{
+  cursor: pointer;
 }
 
 @media (max-width: 468px) {
@@ -76,9 +98,7 @@ img {
 .boton:hover {
   cursor: pointer;
 }
-.header {
-  background-color: var(--negro);
-}
+
 .cifrado{
   padding: 1rem;
 
@@ -91,11 +111,8 @@ img {
   }
 }
 
-
-.footer {
-  background-color: var(--negro);
-}
 .barra {
+  display: flex;
   padding: 0.5rem;
 }
 .texto {
