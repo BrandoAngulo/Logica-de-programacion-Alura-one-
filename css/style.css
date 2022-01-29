@@ -17,7 +17,7 @@ html {
 }
 body {
   font-size: 1.6rem;
-  background-image: url(https://kyaooo.net/wp-content/uploads/2021/01/ataques-tipo-fantasma-pokemon-go-scaled.jpg);
+  background-image: url(../img/pok.webp);
   background-size: contain;
 }
 
@@ -129,6 +129,7 @@ img {
   width: 30rem;
   height: 30rem;
   border: 2px solid var(--negro);
+  font-size: 2rem;
 }
 @media (max-width: 768px) {
   .textarea {
@@ -152,5 +153,10 @@ img {
     grid-column-start: 2;
     text-align: left;
   }
+}
+
+.input{
+  height: 5rem;
+  font-size:2rem;
 }
 

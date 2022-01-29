@@ -1,143 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="es">
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <!-- Google Fonts y preload-->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
-      crossorigin="crossorigin"
-      as="font"
-    />
+    <title>Encriptado de Palabras</title>
+
+    <!-- Google Fonts-->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" crossorigin="crossorigin" as="font" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stilos -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Preload y hoja de estilos -->
+    <link rel="preload" href="../css/style.css" as="style" />
     <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="header">
-      <!-- <div class="contenedor"> -->
+        <!-- <div class="contenedor"> -->
         <div class="barra">
-          <a href="ensayoChallenge.html">
-            <h1 class="Logo_nombre">Cifrado de Palabras</h1>
-          </a>
+            <a href="ensayoChallenge.html">
+                <h1 class="Logo_nombre">Cifrado de Palabras</h1>
+            </a>
         </div>
-     <!--  </div> -->
+        <!--  </div> -->
     </header>
     <div class="contenedor contenido__principal">
-      <main class="cifrado centrar-texto">
+        <main class="cifrado centrar-texto">
 
-    <!-- encriptado -->
-        <article class="entrada">
-          <div class="entrada__encriptado">
-            <h3 class="cifrado__titulo">Encriptar Palabras</h2>
-            <input
-              id="encrip"
-              type="text"
-              placeholder="Digita las palabras a encriptar"
-            />
-            <button id="encriptar" class="boton">Encriptar</button>
-          </div>
-        </article>
-        <!-- Desencriptado -->
-        <article class="entrada">
-          <div class="entrada__desencriptar">
-            <h3 class="cifrado__titulo">Desencriptar Palabras</h3>
-            <input
-              id="desencrip"
-              type="text"
-              placeholder="Digita las palabras a encriptar"
-            />
-            <button id="desencriptar" class="boton">Desencriptar</button>
-          </div>
-        </article>
-        <article class="texto">
-          <textarea class="textarea"></textarea>
-        </article>
-        <div class="boton__texto">
-        <button  class="boton__copiar" >Copiar Texto</button>
-      </div>
-      </main>
+            <!-- encriptado -->
+            <article class="entrada">
+                <div class="entrada__encriptado">
+                    <h3 class="cifrado__titulo">Encriptar Palabras</h2>
+                        <input class="input" id="encrip" type="text" placeholder="Digita tu Frase" />
+                        <button id="encriptar" class="boton">Encriptar</button>
+                </div>
+            </article>
+            <!-- Desencriptado -->
+            <article class="entrada">
+                <div class="entrada__desencriptar">
+                    <h3 class="cifrado__titulo">Desencriptar Palabras</h3>
+                    <input class="input" id="desencrip" type="text" placeholder="Digita tu Frase" />
+                    <button id="desencriptar" class="boton">Desencriptar</button>
+                </div>
+            </article>
+            <article class="texto">
+                <textarea id="textArea" class="textarea" readonly="readonly"></textarea>
+            </article>
+            <div class="boton__texto">
+                <button id="btn" class="boton__copiar">Copiar Texto</button>
+            </div>
+        </main>
     </div>
 
     <footer class="footer">
-      <!-- <div class="contenedor"> -->
+        <!-- <div class="contenedor"> -->
         <div class="barra">
-          <a href="ensayoChallenge.html">
-            <h1 class="Logo_nombre">Dev Brando Angulo <span>® </span></h1>
-          </a>
+            <a href="ensayoChallenge.html">
+                <h1 class="Logo_nombre">Dev Brando Angulo <span>® </span></h1>
+            </a>
         </div>
-      <!-- </div> -->
+        <!-- </div> -->
     </footer>
-    <script>
-      let input = document.getElementById("encrip");
-      let caracteres = /^[a-z\s?]+$/;
-
-      input.focus();
-
-      function encriptar() {
-        //caracteres que se permiten digitar en el input = que inicie con letras solo minusculas que y \s= tenga espacios ?=que los espacios sean opcionales
-        //let caracteres = /^[a-z\s?]+$/;
-        //remplaza todas las coincidencias de palabras asignada por la bocal asignada
-        //str =
-        input.value = input.value
-          .replaceAll("e", "enter")
-          .replaceAll("i", "imes")
-          .replaceAll("a", "ai")
-          .replaceAll("o", "ober")
-          .replaceAll("u", "ufat");
-
-        //condicional solo para que ingrese letras minusculas
-        if (caracteres.test(input.value)) {
-          console.log(input.value);
-        } else {
-          alert(
-            "Las palabras Digitadas Contienen Mayusculas, Caracteres Especiales, Numeros o Acentos"
-          );
-        }
-
-        input.value = "";
-        input.focus();
-      }
-
-      function desencriptar() {
-        let input = document.getElementById("desencrip");
-        //caracteres que se permiten digitar en el input = que inicie con letras solo minusculas que y \s= tenga espacios ?=que los espacios sean opcionales
-        //let caracteres = /^[a-z\s?]+$/;
-        input.focus();
-
-        //remplaza todas las coincidencias de palabras asignada por la bocal asignada
-        input.value = input.value
-          .replaceAll("enter", "e")
-          .replaceAll("imes", "i")
-          .replaceAll("ai", "a")
-          .replaceAll("ober", "o")
-          .replaceAll("ufat", "u");
-
-        //se hace un condicional testeando lo que digita el usuario si esta dentro del rango de caracteres permitidos seria true.
-        if (caracteres.test(input.value)) {
-          console.log(input.value);
-        } else {
-          alert(
-            "Las palabras Digitadas Contienen Mayusculas, Caracteres Especiales, Numeros o Acentos"
-          );
-        }
-
-        input.value = "";
-        input.focus();
-      }
-
-      let button = document.getElementById("encriptar");
-      button.onclick = encriptar;
-      let button2 = document.getElementById("desencriptar");
-      button2.onclick = desencriptar;
-    </script>
-  </body>
+    <script src="../js/index.js"></script>
+</body>
 </html>
