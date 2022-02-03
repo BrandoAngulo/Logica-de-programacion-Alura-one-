@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="600" height="400"></canvas>
+</body>
+<script>
+    //se piden tres parametros  x = en que coordenada inicia horizontalmente y = inserto parametros  x = en que coordenada inicia verticalmente color = darle color al estilo del relleno del dibujo
+    function cuadros(x, y, color) {
+
+        let pantalla = document.querySelector("canvas");
+        let pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle = color;
+        pincel.fillRect(x, y, 50, 50);
+        //stroke es el borde y tambien hay que escoger el estilo
+        pincel.strokeStyle = "black";
+        //con strokrect  podemos darle el margen y hay que darle las mismas coordenadas que se le dan al cuadro
+        pincel.strokeRect(x, y, 50, 50);
+    }
+    
+    //mientras x= 0 es el contador y la posicion mientras va sumando por iteracion haga tal accion hasta que llegue a 600 que es igual a los px del canvas
+    /* x=0;
+    while (x < 600) {
+        
+        cuadros(x,0,"yellow");
+        cuadros(x,50,"blue");
+        cuadros(x,100,"red");
+
+        x+=50;
+
+    } */
+
+    //se deja la altura en una sola posicion por las tres ubicaciones por que la que va ir hasta 600 es la pocision donde inicia cada cuadro
+    for (let x = 0; x < 600; x += 50) {
+
+        cuadros(x, 0, "yellow");
+        cuadros(x, 50, "blue");
+        cuadros(x, 100, "red");
+    }
+
+</script>
+
+</html>
