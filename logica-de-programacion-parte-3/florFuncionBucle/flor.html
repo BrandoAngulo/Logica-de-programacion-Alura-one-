@@ -13,6 +13,8 @@
 </body>
 
 <script>
+    /* Pero en ese código la función dibujarCirculo todavía no está siendo usada, haz uso de la función para diseñar una flor conforme la imagen. Utiliza como punto de referencia para el centro de la flor (círculo rojo) las coordenadas X=300 y Y=200. */
+
     var pantalla = document.querySelector("canvas");
     var pincel = pantalla.getContext("2d");
     pincel.fillStyle = "lightgray";
@@ -25,6 +27,40 @@
         pincel.arc(x, y, radio, 0, 2 * 3.14);
         pincel.fill();
     }
+
+    //funcion para tener colores al random
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    /*  //arriba
+     dibujarCirculo(300,180,10,"black");
+     //centro
+     dibujarCirculo(300,200,10,"red");
+     //derecha
+     dibujarCirculo(320,200,10,"green");
+     //izquierda
+     dibujarCirculo(280,200,10,"yellow");
+     //abajo
+     dibujarCirculo(300,220,10,"blue"); */
+
+    for (let i = 280; i <= 320; i += 20) {
+        if (getRandomColor() != getRandomColor() ) {
+
+            dibujarCirculo(i, 200, 10, getRandomColor());
+
+            for (let y = 180; y <= 220; y += 40) {
+
+                dibujarCirculo(300, y, 10, getRandomColor());
+
+            }
+        }
+    }
+
 </script>
 
 </html>
