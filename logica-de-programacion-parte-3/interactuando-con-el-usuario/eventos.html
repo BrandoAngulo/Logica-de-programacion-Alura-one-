@@ -17,34 +17,23 @@
     pincel.fillStyle = "gray";
     pincel.fillRect(0, 0, 600, 400);
 
-    
-    function alterarColor(evento) {
-      let color = ["blue", "red", "green"];
-      let cambio = true;
-      //coordenada (x) y se resta lo que sobra del lado izquierdo de la variable por que ya tiene su ancho
-      let x = evento.pageX - pantalla.offsetLeft;
-      //coordenada (y) se resta lo que le sobra de la parte superior de la variable que ya esta con su alto
-      let y = evento.pageY - pantalla.offsetTop;
-
-        for (let i = 0; i < color.length; i++) {
-            pincel.fillStyle = color[i];   
-        }
-      pincel.beginPath();
-      pincel.arc(x, y, 10, 0, 2 * 3.14);
-      pincel.fill();
-
-      console.log(evento);
-      //alert(x+","+y);
-
-      //se le da esta instruccion para que no se muestre el menu normal que se da al undir click derecho
-      return false;
-    }
-
     function mostrarAlerta(evento) {
       let x = evento.pageX - pantalla.offsetLeft;
       let y = evento.pageY - pantalla.offsetTop;
 
       alert(x + "," + y);
+    }
+    let contador =0;
+    function alterarColor() {
+      let color = ["blue", "red", "green"];
+      let cambio = false;
+      contador++;
+      pincel.fillStyle = color[contador]; 
+      console.log(contador);
+      //alert(x+","+y);
+
+      //se le da esta instruccion para que no se muestre el menu normal que se da al undir click derecho
+      return false;
     }
 
     function click(evento) {
@@ -57,12 +46,17 @@
       pincel.beginPath();
       pincel.arc(x, y, 10, 0, 2 * 3.14);
       pincel.fill();
+      
 
       console.log(x + "," + y);
       //alert(x+","+y);
     }
+
+    
+
     //pantalla.onclick = mostrarAlerta;
     pantalla.onclick = click;
     pantalla.oncontextmenu = alterarColor;
   </script>
+
 </html>
