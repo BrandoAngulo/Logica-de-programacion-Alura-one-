@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <canvas width="600" height="400"></canvas>
-  </body>
-  <script>
+</body>
+<script>
+
     let pantalla = document.querySelector("canvas");
     let pincel = pantalla.getContext("2d");
 
     pincel.fillStyle = "gray";
     pincel.fillRect(0, 0, 600, 400);
 
-    function mostrarAlerta(evento) {
-      let x = evento.pageX - pantalla.offsetLeft;
-      let y = evento.pageY - pantalla.offsetTop;
+    let color = ["blue", "red", "green"];
+    let contador = 0;
+  
 
-      alert(x + "," + y);
-    }
-    let contador =0;
-    function alterarColor() {
-      let color = ["blue", "red", "green"];
-      let cambio = false;
-      contador++;
-      pincel.fillStyle = color[contador]; 
-      console.log(contador);
-      //alert(x+","+y);
+/*     function mostrarAlerta(evento) {
+        let x = evento.pageX - pantalla.offsetLeft;
+        let y = evento.pageY - pantalla.offsetTop;
 
-      //se le da esta instruccion para que no se muestre el menu normal que se da al undir click derecho
-      return false;
-    }
-
-    function click(evento) {
-      //coordenada (x) y se resta lo que sobra del lado izquierdo de la variable por que ya tiene su ancho
-      let x = evento.pageX - pantalla.offsetLeft;
-      //coordenada (y) se resta lo que le sobra de la parte superior de la variable que ya esta con su alto
-      let y = evento.pageY - pantalla.offsetTop;
-
-      pincel.fillStyle = "blue";
-      pincel.beginPath();
-      pincel.arc(x, y, 10, 0, 2 * 3.14);
-      pincel.fill();
-      
-
-      console.log(x + "," + y);
-      //alert(x+","+y);
-    }
-
+        alert(x + "," + y);
+    } */
     
 
-    //pantalla.onclick = mostrarAlerta;
+    function click(evento) {
+        //coordenada (x) y se resta lo que sobra del lado izquierdo de la variable por que ya tiene su ancho
+        let x = evento.pageX - pantalla.offsetLeft;
+        //coordenada (y) se resta lo que le sobra de la parte superior de la variable que ya esta con su alto
+        let y = evento.pageY - pantalla.offsetTop;
+
+        pincel.fillStyle = color[contador];
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+
+
+        //console.log(x + "," + y);
+        //alert(x+","+y);
+    }
+
     pantalla.onclick = click;
+
+    function alterarColor() {
+      
+        contador++;
+
+        if (contador >= color.length) {
+          contador = 0;
+        }
+        //console.log(contador);
+
+        //se le da esta instruccion para que no se muestre el menu normal que se da al undir click derecho
+        return false;
+    }
+
+
+    //pantalla.onclick = mostrarAlerta;
+   
     pantalla.oncontextmenu = alterarColor;
-  </script>
+</script>
 
 </html>
