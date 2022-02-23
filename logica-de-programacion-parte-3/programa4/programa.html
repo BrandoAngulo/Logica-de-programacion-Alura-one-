@@ -22,27 +22,39 @@
 
         function cleanScreen() {
 
-            pincel.clearRect(0,0,600,400);
+            pincel.clearRect(0, 0, 600, 400);
 
         }
 
-        function circle(x,y,radio) {
+        function circle(x, y, radio) {
 
             pincel.fillStyle = "red";
             pincel.beginPath();
-            pincel.arc(x,y,radio,0,2*Math.PI);
+            pincel.arc(x, y, radio, 0, 2 * Math.PI);
             pincel.fill();
         }
 
         let x = 0;
+        let i = 1;
+
         function updateScreen() {
+
             cleanScreen();
-            circle(x,20,10);
-            x++;
+            if (x > 15) {
+                i = -1;
+            }
+            if (x < 0) {
+                i = 1;
+            }
+
+            circle(x, 20, 10);
+            x = x + i;
+
+            console.log(x);
         }
+
         //la funcion setinterval llama automaticamente una funcion cada tantos milisegundos que se le pongan.
-        setInterval(updateScreen,1000);
-        
+         setInterval(updateScreen, 1000);
     </script>
 </body>
 

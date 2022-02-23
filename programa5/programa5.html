@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <canvas width="600" height="400"></canvas>
+
+
+    <script>
+        let pantalla = document.querySelector("canvas");
+        let pincel = pantalla.getContext("2d");
+
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0, 0, 600, 400);
+
+        function cleanScreen() {
+
+            pincel.clearRect(0, 0, 600, 400);
+
+        }
+
+        function circle(x, y, radio, color) {
+
+            pincel.fillStyle = color;
+            pincel.beginPath();
+            pincel.arc(x, y, radio, 0, 2 * Math.PI);
+            pincel.fill();
+        }
+
+        //randomizamos con la function que hemos creado para que nos devuelva un numero dentro de la posicion establecida
+        let xrandom;
+        let yrandom;
+        let radio = 10;
+        let x = 0;
+        function dibujarDiana(x, y) {
+
+            circle(x, y, radio + 20, "red");
+            circle(x, y, radio + 10, "white");
+            circle(x, y, radio, "red");
+
+            //console.log(x + " " + y);
+
+        }
+
+        function randomPosicion(maximo) {
+            //math.floor redndea el primer numero entero para abajo.
+            //esta funcion creada retorna un numero aleatorio
+            return Math.floor(Math.random() * maximo);
+        }
+
+        function updateScreen() {
+
+            cleanScreen();
+            xrandom = randomPosicion(600);
+            yrandom = randomPosicion(400);
+            dibujarDiana(xrandom, yrandom);
+            x++;
+
+        }
+
+        function disparo(evento) {
+
+            let x = evento.pageX - pantalla.offsetLeft;
+            let y = evento.pageY - pantalla.offsetTop;
+
+            if ((x < xrandom + radio) &&
+                (x > xrandom - radio) &&
+                (y < yrandom + radio) &&
+                (y > yrandom - radio)) {
+
+                alert("Acerto");
+            }
+
+        }
+
+        //la funcion setinterval llama automaticamente una funcion cada tantos milisegundos que se le pongan.
+        setInterval(updateScreen, 1000);
+
+        pantalla.onclick = disparo;
+    </script>
+</body>
+
+</html>
