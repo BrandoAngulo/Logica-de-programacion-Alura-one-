@@ -1,0 +1,111 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    let pantalla = document.querySelector('canvas');
+    let pincel = pantalla.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    let puedoDibujar = false;
+    let colores = ["red", "green", "blue", "black"];
+    let posX = 0;
+    let posY = 0;
+
+    function dibujarRect(x, y, color) {
+
+        pincel.fillStyle = color;
+        pincel.fillRect(x, y, 50, 50);
+
+    }
+
+    function pickColor(evento) {
+
+        let x = evento.pageX
+        let y = evento.pageY
+
+        if ((x < 50) && (x  >0) && (y < 50) ) {
+            colores[0];
+            console.log(colores[0]);
+        }
+        if ((x < 100) && (x  > 50) && (y < 50) ) {
+            colores[1];
+            console.log(colores[1]);
+        }
+        if ((x < 150) && (x  > 100) && (y < 50) ) {
+            colores[2];
+            console.log(colores[2]);
+        }
+        if ((x < 200) && (x  > 150) && (y < 50) ) {
+            colores[3];
+            console.log(colores[3]);
+        }
+       
+        
+    }
+    pantalla.onclick = pickColor;
+
+    function block(evento) {
+
+        let x = evento.pageX - pantalla.offsetLeft;
+        let y = evento.pageY - pantalla.offsetTop;
+
+        if ((x < 200) &&
+            (x > 200 - 200) &&
+            (y < 50) &&
+            (y > 50 - 50)) {
+
+            console.log("click");
+        }
+        
+        console.log(x,y);
+    }
+    //pantalla.onclick = block;
+
+    function Paleta() {
+
+        for (let i = 0; i < colores.length; i++) {
+
+            dibujarRect(posX, posY, colores[i]);
+            posX = posX + 50;
+            console.log(posX);
+
+        }
+
+
+    }
+    Paleta(posX, posY);
+
+    function bloqueo(evento) {
+
+    }
+
+    function dibujarCirculo(evento) {
+
+        if (puedoDibujar) {
+            let x = evento.pageX - pantalla.offsetLeft;
+            let y = evento.pageY - pantalla.offsetTop;
+            pincel.fillStyle = colores;
+            pincel.beginPath();
+            pincel.arc(x, y, 5, 0, 2 * 3.14);
+            pincel.fill();
+        }
+
+    }
+
+    pantalla.onmousemove = dibujarCirculo;
+
+    function habilitarDibujar() {
+
+        puedoDibujar = true;
+    }
+
+    function deshabilitarDibujar() {
+
+        puedoDibujar = false;
+    }
+
+    pantalla.onmousedown = habilitarDibujar;
+
+    pantalla.onmouseup = deshabilitarDibujar;
+</script>
