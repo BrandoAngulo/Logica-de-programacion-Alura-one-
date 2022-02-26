@@ -11,7 +11,9 @@
     let colores = ["red", "green", "blue", "black"];
     let posX = 0;
     let posY = 0;
+    let colorPick;
 
+    //crea un rectangulo
     function dibujarRect(x, y, color) {
 
         pincel.fillStyle = color;
@@ -19,93 +21,85 @@
 
     }
 
+    //seleccionar color
     function pickColor(evento) {
 
         let x = evento.pageX
         let y = evento.pageY
 
-        if ((x < 50) && (x  >0) && (y < 50) ) {
-            colores[0];
+        if ((x < 50) && (x > 0) && (y < 50)) {
+            colorPick = colores[0];
             console.log(colores[0]);
         }
-        if ((x < 100) && (x  > 50) && (y < 50) ) {
-            colores[1];
+        if ((x < 100) && (x > 50) && (y < 50)) {
+            colorPick = colores[1];
             console.log(colores[1]);
         }
-        if ((x < 150) && (x  > 100) && (y < 50) ) {
-            colores[2];
+        if ((x < 150) && (x > 100) && (y < 50)) {
+            colorPick = colores[2];
             console.log(colores[2]);
         }
-        if ((x < 200) && (x  > 150) && (y < 50) ) {
-            colores[3];
+        if ((x < 200) && (x > 150) && (y < 50)) {
+            colorPick = colores[3];
             console.log(colores[3]);
         }
-       
-        
+
     }
+    //llama a la funcion seleccionar color con dar un click encima con sus coordenadas
     pantalla.onclick = pickColor;
 
-    function block(evento) {
-
-        let x = evento.pageX - pantalla.offsetLeft;
-        let y = evento.pageY - pantalla.offsetTop;
-
-        if ((x < 200) &&
-            (x > 200 - 200) &&
-            (y < 50) &&
-            (y > 50 - 50)) {
-
-            console.log("click");
-        }
-        
-        console.log(x,y);
-    }
-    //pantalla.onclick = block;
-
+    //crea y rellena la paleta de colores llamando a la funcion dibujarRect que crea los rectangulos
     function Paleta() {
 
         for (let i = 0; i < colores.length; i++) {
-
+            //funcion para crear rectangulos
             dibujarRect(posX, posY, colores[i]);
+
             posX = posX + 50;
-            console.log(posX);
-
         }
-
-
+        
     }
+    //llama a la funcion para crear la paleta de colores
     Paleta(posX, posY);
 
-    function bloqueo(evento) {
-
-    }
-
+    //dibuja el circulo y deshabilita si el puntero esta undido cuando pasa por la paleta de colores
     function dibujarCirculo(evento) {
 
         if (puedoDibujar) {
             let x = evento.pageX - pantalla.offsetLeft;
             let y = evento.pageY - pantalla.offsetTop;
-            pincel.fillStyle = colores;
+
+            pincel.fillStyle = colorPick;
             pincel.beginPath();
             pincel.arc(x, y, 5, 0, 2 * 3.14);
             pincel.fill();
+
+            if ((x <= 220) && (y <= 70)) {
+
+                deshabilitarDibujar();
+
+                console.log(x, y);
+            }
         }
 
     }
 
     pantalla.onmousemove = dibujarCirculo;
-
+    //habilita el puntero undido para colorear
     function habilitarDibujar() {
 
         puedoDibujar = true;
+        
     }
 
+    //deshabilita el puntero undido coloreando
     function deshabilitarDibujar() {
 
         puedoDibujar = false;
     }
-
+    //llama a la funcion habilitar y pone en true el click derecho undido con el puntero  
     pantalla.onmousedown = habilitarDibujar;
 
+    //llama a la funcion deshabilitar y pone en false el click derecho con el puntero para dejar de pintar 
     pantalla.onmouseup = deshabilitarDibujar;
 </script>
