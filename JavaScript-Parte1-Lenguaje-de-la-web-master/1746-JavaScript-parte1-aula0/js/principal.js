@@ -16,8 +16,18 @@
 			let peso = infoPeso.textContent;
 			let altura = infoAltura.textContent;
 
+
+			
+			if((peso < 0) && (peso > 595)){
+				alert("Digita un peso mayor a 0 y menor a 595 KL");
+			}
+			if ((altura < 0) && (altura > 2.51)) {
+				alert("Digita una altura mayor a 0 y menor a 5,51 pies");
+			}
+			
 			//formula del imc peso/altura^2
 			let imc = peso / Math.pow(altura,2); //100 / 2 * 2 = 25 
 			infoImc.textContent = imc;
+
 			console.log(general);
 			console.log(infoImc);
