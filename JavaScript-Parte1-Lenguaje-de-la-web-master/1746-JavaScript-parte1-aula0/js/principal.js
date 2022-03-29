@@ -22,10 +22,7 @@ for (let i = 0; i < pacientes.length; i++) {
 
 	let peso = infoPeso.textContent;
 	let altura = infoAltura.textContent;
-	//variable para darle color a los errores digitados del paciente
-	
-
-
+	    
 
 	if ((peso < 0) || (peso > 595)) {
 		//console.log("Digita un peso correcto");
@@ -60,3 +57,15 @@ for (let i = 0; i < pacientes.length; i++) {
 		infoImc.textContent = imc.toFixed();//tofixed decide poner el numero de digitos decimalesdespues del punto
 	}
 }
+
+
+	//cuando haya un click agregueme lo que esta dentro del input
+	let botonAgregar = document.querySelector('#adicionar-paciente');
+
+	//capturador de eventos con el click, y creamos una function anonima 
+	botonAgregar.addEventListener("click", function(event){
+		//ponemos el event dentro de la function anonima para que quitemos el actualizado automatico que viene por defecto
+		//y llamamos al evento como defaultPrevented();
+		event.preventDefault();
+		console.log('Hicieron clic en el Botón');
+	});

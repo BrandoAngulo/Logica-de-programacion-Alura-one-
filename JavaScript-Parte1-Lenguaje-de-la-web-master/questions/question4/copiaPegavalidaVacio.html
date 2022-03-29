@@ -1,0 +1,16 @@
+<input class="frase">
+<button class="boton">Copiar</button> <span class="copia"></span>
+<script>
+    var inputFrase = document.querySelector('.frase');
+    var boton = document.querySelector('.boton');
+    var copia = document.querySelector('.copia');
+
+    //funcion para copiar pegar y actualizar input
+    function botonHandler() {
+        //copia y muestra la frase copiada en un span y actualiza el input en vacio
+        copia.textContent = inputFrase.value;
+        inputFrase.value="";
+    }
+
+    boton.addEventListener('click', botonHandler);
+</script>
