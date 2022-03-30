@@ -61,11 +61,17 @@ for (let i = 0; i < pacientes.length; i++) {
 
 	//cuando haya un click agregueme lo que esta dentro del input
 	let botonAgregar = document.querySelector('#adicionar-paciente');
+	let nombre = document.querySelector('#nombre');
+	let peso = document.querySelector('#peso');
+	let altura = document.querySelector('#altura');
+	let gordura = document.querySelector('#gordura');
 
 	//capturador de eventos con el click, y creamos una function anonima 
 	botonAgregar.addEventListener("click", function(event){
-		//ponemos el event dentro de la function anonima para que quitemos el actualizado automatico que viene por defecto
+		//ponemos el event dentro de la function anonima como un parametro para que quitemos el actualizado automatico que viene por defecto
 		//y llamamos al evento como defaultPrevented();
 		event.preventDefault();
-		console.log('Hicieron clic en el Botón');
+		//creamos la variable con la que vamos a acceder al formulario de HTML
+		let formuladrio = document.querySelector('#form-agregar');
+		console.log(formuladrio);
 	});
