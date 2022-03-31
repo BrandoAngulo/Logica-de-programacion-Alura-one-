@@ -22,7 +22,7 @@ for (let i = 0; i < pacientes.length; i++) {
 
 	let peso = infoPeso.textContent;
 	let altura = infoAltura.textContent;
-	    
+
 
 	if ((peso < 0) || (peso > 595)) {
 		//console.log("Digita un peso correcto");
@@ -53,25 +53,15 @@ for (let i = 0; i < pacientes.length; i++) {
 
 	if ((pesoCorrecto === true) && (alturaCorrecta === true)) {
 		//formula del imc peso/altura^2
-		let imc = peso / Math.pow(altura, 2); //100 / 2 * 2 = 25 
-		infoImc.textContent = imc.toFixed();//tofixed decide poner el numero de digitos decimalesdespues del punto
+		 
+		infoImc.textContent = calcularImc(peso, altura);
 	}
 }
 
+function calcularImc(peso,altura) {
 
-	//cuando haya un click agregueme lo que esta dentro del input
-	let botonAgregar = document.querySelector('#adicionar-paciente');
-	let nombre = document.querySelector('#nombre');
-	let peso = document.querySelector('#peso');
-	let altura = document.querySelector('#altura');
-	let gordura = document.querySelector('#gordura');
+	let imc = peso / Math.pow(altura, 2); //100 / 2 * 2 = 25
 
-	//capturador de eventos con el click, y creamos una function anonima 
-	botonAgregar.addEventListener("click", function(event){
-		//ponemos el event dentro de la function anonima como un parametro para que quitemos el actualizado automatico que viene por defecto
-		//y llamamos al evento como defaultPrevented();
-		event.preventDefault();
-		//creamos la variable con la que vamos a acceder al formulario de HTML
-		let formuladrio = document.querySelector('#form-agregar');
-		console.log(formuladrio);
-	});
+	//retorno un valor
+	return imc.toFixed(); //tofixed decide poner el numero de digitos decimalesdespues del punto
+}

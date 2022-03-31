@@ -1,0 +1,21 @@
+<div>
+    <h1 class="titulo"> Mirror Fashion </h1>
+    <p> Una tienda de ropa fantástica</p>
+</div>
+
+<script>
+
+    let div = document.createElement("div");
+    let h1 = document.createElement("h1");
+    let parrafo = document.createElement("p");  
+
+    //con classList accesamos a la clase con que este en la etiqueta de HTML;
+    h1.classList.add("titulo")
+    h1.textContent = "titutoto";
+    parrafo.textContent = "asdadlsakldalkjd";
+
+    div.appendChild(h1);
+    div.appendChild(parrafo);
+
+    console.log(div);
+</script>
