@@ -43,7 +43,7 @@ for (let i = 0; i < pacientes.length; i++) {
 		paciente.classList.add("paciente-incorrecto");
 	}
 
-	console.log(alturaCorrecta + " " + pesoCorrecto);
+	//console.log(alturaCorrecta + " " + pesoCorrecto);
 
 	if ((pesoCorrecto === false) && (alturaCorrecta === false)) {
 
