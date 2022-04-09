@@ -31,6 +31,10 @@ botonAgregar.addEventListener("click", function (event) {
     tabla.appendChild(pacienteTr);
     //resetear valores y dejar en blanco los input cada ves que enviemos a la tabla los datos, es igual q un value="";
     formulario.reset();
+    //se crea variable para acceder a la clase (ul) lista de errores que se ah creado y asi poner vacio
+    let resetErrores = document.querySelector("#mensaje-errores");
+    //la propiedad innerHTML se utiliza para acceder al texto de html y cambiarlo por otro o dejarlo vacio cuando se actualiza la pagina
+    resetErrores.innerHTML ="";
 
 });
 
@@ -82,6 +86,20 @@ function constriurTd(dato, clase) {
 function validarPaciente(paciente) {
     //hacemos un array vacio para insertarle algn error si depronto se genera y lo retornamos..
     let errores = [];
+    
+    //Validadores de campos vacios
+    if ( paciente.nombre.length === 0) {
+        errores.push("Rellenar el campo del nombre");
+    }
+    if ( paciente.peso.length === 0) {
+        errores.push("Rellenar el campo del peso");
+    }
+    if ( paciente.altura.length === 0) {
+        errores.push("Rellenar el campo de altura");
+    }
+    if ( paciente.gordura.length === 0) {
+        errores.push("Rellenar el campo del porcentaje de gordura");
+    }
     //validacion de paciente, cuando el valor sea negativo osea que entra a la validacion por que negativo es verdadero
     if (!validarPeso(paciente.peso)) {
         errores.push("peso del paciente incorrecto");
@@ -96,6 +114,8 @@ function validarPaciente(paciente) {
 function mostrarMensajeErrores(errores) {
     //variable para acceder a la lista
     let ul = document.querySelector("#mensaje-errores");
+    //propiedad para añadir lo que sea en un mensaje al actualizar la pagina
+    ul.innerHTML = "";
     //se crea un foreach para q recorra y cree cada li cada ves que hay un error
     errores.forEach(function (error) {
         //variable para ir creando cada error y una li de una lista ul
