@@ -140,3 +140,9 @@ button[disabled=disabled], button:disabled {
 #mensaje-errores{
 	color: #FF0000;
 }
+
+/*desvanecer fila paciente al dar doble click en la tabla*/
+.fadeOut{
+	opacity: 0;
+	transition: 0.5s;
+}

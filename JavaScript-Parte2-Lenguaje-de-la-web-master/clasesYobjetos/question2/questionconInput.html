@@ -1,0 +1,40 @@
+<ul class="lista">
+    <li>Haz clic en A</li>
+    <li>Haz clic en B</li>
+    <li>Haz clic en C</li>
+</ul>
+
+<input id="campo"><button id="boton">Adicionar</button>
+
+<script>
+
+    var lista = document.querySelector('.lista');
+
+//esta es la forma para acceder al objeto con informacion desde el html de manera muy poco usada
+/*     for(var i = 0; i < lista.length; i++) {
+
+        lista[i].addEventListener('click', function() {
+
+               alert(this.textContent);
+        });
+    } */
+    //esta es la forma para acceder al objeto con informacion desde el html e ingresada por el usuario con el evento bubblin
+    lista.addEventListener("click",function(event){
+        //console.log(event.target.textContent);
+        alert(event.target.textContent);
+    });
+
+    var boton = document.querySelector('#boton');
+    var input = document.querySelector('#campo');
+    var lista = document.querySelector('.lista');
+
+    boton.addEventListener('click',function() {
+        var li = document.createElement('li');
+        li.textContent = input.value;
+        lista.appendChild(li);
+        //console.log(li);
+        input.value = "";
+    });
+    
+
+</script>
