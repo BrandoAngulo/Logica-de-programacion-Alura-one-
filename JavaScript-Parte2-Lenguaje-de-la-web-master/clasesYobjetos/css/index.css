@@ -153,3 +153,7 @@ button[disabled=disabled], button:disabled {
 	margin-bottom: 10px;
 	border-radius: 3px;
 }
+
+.invisible{
+	display: none;
+}
