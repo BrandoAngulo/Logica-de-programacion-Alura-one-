@@ -12,7 +12,11 @@ campoFiltro.addEventListener("input", function () {
     let pacientes = document.querySelectorAll(".paciente");
     //solo para ver lo que capturamos
     //console.log(pacientes);
-    if (this.value.length > 0 ) {
+
+    //se crea variable para usar expresiones regulares y revisar las letras escritas en el input "i" = insensitive a las mayusculas o minusculas
+    let expresion = new RegExp(this.value, "i");
+   
+    if (this.value.length > 0) {
         for (let i = 0; i < pacientes.length; i++) {
             //se crea una variable paciente para iterar dentro de la clase pacientes que es la que tiene los td de los pacientes de la tabla
             let paciente = pacientes[i];
@@ -23,20 +27,22 @@ campoFiltro.addEventListener("input", function () {
             let nombre = tdNombre.textContent;
             //imprimimos para ver el contenido del td-nombre
             //console.log(nombre);
-            if (this.value != nombre) {
+            //buscamos con las expresiones regulares si no hay una letra parecida de algun nombre buscado en el filtro que se desaparezca
+            //if (this.value != nombre) {
+             if (!expresion.test(nombre)) {
                 paciente.classList.add("invisible");
             } else {
                 paciente.classList.remove("invisible");
-            };
-            
+            }; 
+
         };
 
-    }else{
+    } else {
         for (let i = 0; i < pacientes.length; i++) {
             let paciente = pacientes[i];
             paciente.classList.remove("invisible");
         };
     };
 
-}); 
+});
 
