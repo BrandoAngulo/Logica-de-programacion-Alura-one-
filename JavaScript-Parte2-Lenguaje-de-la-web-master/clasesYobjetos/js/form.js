@@ -6,13 +6,11 @@ botonAgregar.addEventListener("click", function (event) {
     //ponemos el event dentro de la function anonima como un parametro para que quitemos el actualizado automatico que viene por defecto
     //y llamamos al evento como defaultPrevented();
     event.preventDefault();
-
     //creamos la variable para capturar atraves del querySelector nuestro formulario
     let formulario = document.querySelector('#form-agregar');
     // de esta forma guardamos en cada variable lo que digitamos en el atributo del objeto formulario de HTML
     //con VALUE accedemos a lo que estamos ingresando dentro de cada input y lo estamos guardando en las variables 
     let paciente = capturarPaciente(formulario);
-    
     //variable creada para llamar a la funcion creada para errores
     let errores = validarPaciente(paciente);
     //si hay un error o si la funcion q esta con la variable errores es mayor que cero va entrar al condicional para validar
@@ -43,9 +41,22 @@ function adicionarPaciente(paciente) {
      tabla.appendChild(pacienteTr);
 };
 
+//se crea una funcion como performance del codigo para el ingreso de cada paciente
+function capturarPaciente(formulario) {
+    //se crea un objeto para captura de datos del formulario
+    let paciente = {
+        nombre: formulario.nombre.value,
+        peso: formulario.peso.value,
+        altura: formulario.altura.value,
+        gordura: formulario.gordura.value,
+        //creamos la caracteristica imc y llamamos la funcion de calcularImc y le asignamos los valores con la instancia formulario
+        imc: calcularImc(formulario.peso.value, formulario.altura.value)
+    }
+    return paciente;
+}
+
 //se crea una funcion para el tr y los tds
 function construirTr(paciente) {
-
     //creando etiquetas  <tr>fila y columna<td> para agregar a la tabla la tabla 
     let pacienteTr = document.createElement('tr');
     //creando clase de un tr para HTML
@@ -60,20 +71,6 @@ function construirTr(paciente) {
     pacienteTr.appendChild(constriurTd(paciente.imc, "info-imc"));
 
     return pacienteTr;
-}
-
-//se crea una funcion como performance del codigo para el ingreso de cada paciente
-function capturarPaciente(formulario) {
-    //se crea un objeto para captura de datos del formulario
-    let paciente = {
-        nombre: formulario.nombre.value,
-        peso: formulario.peso.value,
-        altura: formulario.altura.value,
-        gordura: formulario.gordura.value,
-        //creamos la caracteristica imc y llamamos la funcion de calcularImc y le asignamos los valores con la instancia formulario
-        imc: calcularImc(formulario.peso.value, formulario.altura.value)
-    }
-    return paciente;
 }
 
 //funcion para pasar el dato del paciente y crear la clase

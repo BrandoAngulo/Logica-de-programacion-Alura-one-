@@ -9,9 +9,10 @@ botonBucar.addEventListener("click", function () {
             let respuesta = xhr.responseText;
             //JON.parsear = convertir a valor json
             let pacientes = JSON.parse(respuesta);
-            pacientes.forEach(function (paciente) {
+            pacientes.forEach(function(paciente) {
                 adicionarPaciente(paciente);
             });
+            //!hay un error en el else recordar para arreglarlo por que no esta obteniendo la respuesta de error de la ruta Http
         }else{
             errorAjax.classList.remove("invisible");
             console.log(xhr.status);
@@ -19,6 +20,6 @@ botonBucar.addEventListener("click", function () {
             console.log(xhr.responseText);
         };
 
-    });
+    })
     xhr.send();
 });
