@@ -12,7 +12,7 @@ botonAgregar.addEventListener("click", function (event) {
     // de esta forma guardamos en cada variable lo que digitamos en el atributo del objeto formulario de HTML
     //con VALUE accedemos a lo que estamos ingresando dentro de cada input y lo estamos guardando en las variables 
     let paciente = capturarPaciente(formulario);
-    let pacienteTr = construirTr(paciente);
+    
     //variable creada para llamar a la funcion creada para errores
     let errores = validarPaciente(paciente);
     //si hay un error o si la funcion q esta con la variable errores es mayor que cero va entrar al condicional para validar
@@ -25,10 +25,8 @@ botonAgregar.addEventListener("click", function (event) {
         //este return hace referencia a nuestra function anonima, por que un if no lleva return
         return;
     }
-    //creamos variable para acceder al id de la tabla para guardar nuestros datos nuevos a la tabla
-    let tabla = document.querySelector('#tabla-pacientes')
-    //designamos a la tabla el dato nuevo del paciente
-    tabla.appendChild(pacienteTr);
+    //llamo funcion para construir un tr dentro de la tabla con un paciente
+    adicionarPaciente(paciente);
     //resetear valores y dejar en blanco los input cada ves que enviemos a la tabla los datos, es igual q un value="";
     formulario.reset();
     //se crea variable para acceder a la clase (ul) lista de errores que se ah creado y asi poner vacio
@@ -37,6 +35,13 @@ botonAgregar.addEventListener("click", function (event) {
     resetErrores.innerHTML ="";
 
 });
+function adicionarPaciente(paciente) {
+    let pacienteTr = construirTr(paciente);
+     //creamos variable para acceder al id de la tabla para guardar nuestros datos nuevos a la tabla
+     let tabla = document.querySelector('#tabla-pacientes')
+     //designamos a la tabla el dato nuevo del paciente
+     tabla.appendChild(pacienteTr);
+};
 
 //se crea una funcion para el tr y los tds
 function construirTr(paciente) {
@@ -54,9 +59,7 @@ function construirTr(paciente) {
     pacienteTr.appendChild(constriurTd(paciente.gordura, "info-gordura"));
     pacienteTr.appendChild(constriurTd(paciente.imc, "info-imc"));
 
-
     return pacienteTr;
-
 }
 
 //se crea una funcion como performance del codigo para el ingreso de cada paciente
