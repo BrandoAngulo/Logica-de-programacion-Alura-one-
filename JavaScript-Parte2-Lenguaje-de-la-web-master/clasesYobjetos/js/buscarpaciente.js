@@ -12,7 +12,6 @@ botonBucar.addEventListener("click", function () {
             pacientes.forEach(function(paciente) {
                 adicionarPaciente(paciente);
             });
-            //!hay un error en el else recordar para arreglarlo por que no esta obteniendo la respuesta de error de la ruta Http
         }else{
             errorAjax.classList.remove("invisible");
             console.log(xhr.status);
