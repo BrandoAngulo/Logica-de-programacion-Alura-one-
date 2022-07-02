@@ -7,7 +7,7 @@ ciudades2.push("Bogota");
 ciudades2.push("Medellin");
 console.log(ciudades2);
 for (let i = 0; i < ciudades2.length; i++) {
-    ciudades3.push(ciudades2[i]);
+    ciudades3.push(ciudades2[n]);
 }
 ciudades3.splice(1)
 console.log(ciudades3,ciudades3.length);
