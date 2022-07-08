@@ -1,0 +1,24 @@
+*{
+    font-family: sans-serif,'Courier New', Courier, monospace;
+    padding: 0%;
+    margin: 0%;
+}
+nav a{
+    text-decoration: none;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0 0 0 15px;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+}
+nav li{
+    display: inline;
+}
+.navbar_links, .navbar_logo{
+    margin: auto;
+    padding: 10px;
+}
