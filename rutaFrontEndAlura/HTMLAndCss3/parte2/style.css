@@ -14,6 +14,14 @@ nav a{
     font-size: 30px;
     margin: 0 0 0 15px;
 }
+nav a:hover{
+    color: #ffffff;
+    text-decoration: underline;
+    text-shadow: 2px 0px 0px #000000,
+                 0px 2px 0px #000000,
+                 -2px 0px 0px #000000,
+                 0px -2px 0px #000000;
+}
 
 .navbar{
     margin: auto;
@@ -64,7 +72,7 @@ nav a{
     display: inline-block;
     padding: 20px;
     margin: 20px;
-    width: 25%;
+    width: 300px;
     box-sizing: border-box;
     /* forma abreviada del borde border: 2px solid color */
     border-width: 2px;
@@ -72,14 +80,40 @@ nav a{
     border-color: #000000;
     border-radius: 15px;
 }
+.lista li:hover {
+    border: 3px solid #e90000;
+    box-shadow: 2px 0px 0px #000000,
+                0px 2px 0px #000000,
+                -2px 0px 0px #000000,
+                0px -2px 0px #000000;
+    font-size: 33px
+}
+.lista li:active{
+    border: 3px solid #000fff;
+}
 
 .lista h2{
     font-size: 30px;
 }
+/* aplicar el hover a todo el h2 a en el momento que ponga el cursor encima de la imagen */
+.lista li:hover h2{
+    font-size: 33px;
+} 
 .lista_precio{
     margin-top: 5px;
     font-size: 22px;
 }
 .lista_descripcion{
     font-size: 18px;
+}
+
+footer{
+    text-align: center;
+    background-image: url(imagenes/bg.jpg);
+    padding: 40px;
+}
+.footer_copyright{
+    font-size: 18px;
+    color: #ffffff;
+    margin: 20px;
 }
