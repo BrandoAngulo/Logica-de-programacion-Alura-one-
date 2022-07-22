@@ -6,10 +6,9 @@ listaRandom=[];
 #agregar varios numeros aleatorios en una lista
 # la funcion len() nos muestra el tamaño de una lista o array, la cantidad de elementos que contiene 
 #con esta funcion nunca se van a cambiar los valores aleatorios despues de que lo haga la primer vez
-seed(8)
+seed(4)
 def randomNum():
     for i in range(6):
         listaRandom.append(randrange(0,11))
-    print(f'{listaRandom} {len(listaRandom)}');
-    
+    #print(f'{listaRandom} {len(listaRandom)}');
 randomNum()
